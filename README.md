@@ -1,7 +1,7 @@
 
 <!-- README.md is generated from README.Rmd. Please edit that file -->
 
-# ldsep: Linkage Disequilibrium Shrinkage Estimation for Polyploids <a href='https://dcgerard.github.io/ldsep'><img src='man/figures/logo.png' align="right" height="138" /></a>
+# ldsep: Linkage Disequilibrium Shrinkage Estimation for Polyploids <a href='https://dcgerard.github.io/ldsep/'><img src='man/figures/logo.png' align="right" height="138" /></a>
 
 <!-- badges: start -->
 
@@ -17,7 +17,7 @@ status](https://www.r-pkg.org/badges/version/ldsep)](https://CRAN.R-project.org/
 v3](https://img.shields.io/badge/License-GPL%20v3-blue.svg)](https://www.gnu.org/licenses/gpl-3.0)
 <!-- badges: end -->
 
-Estimate gametic or composite pairwise linkage disequilibrium (LD) in
+Estimate haplotypic or composite pairwise linkage disequilibrium (LD) in
 polyploids, using either genotypes or genotype likelihoods. Support is
 provided to estimate the popular measures of LD: the LD coefficient
 \(D\), the standardized LD coefficient \(D'\), and the Pearson
@@ -68,6 +68,7 @@ By contributing to this project, you agree to abide by its terms.
     shrinkage estimation of correlations, with applications.” *bioRxiv*
     (2018): 368316.
   - Gerard, David. “Pairwise Linkage Disequilibrium Estimation for
-    Polyploids.” *Unpublished manuscript* (2020).
+    Polyploids.” *bioRxiv* (2020):
+    [doi:10.1101/2020.08.03.234476](https://doi.org/10.1101/2020.08.03.234476).
   - Stephens, Matthew. “False discovery rates: a new deal.”
     *Biostatistics* 18, no. 2 (2017): 275-294.

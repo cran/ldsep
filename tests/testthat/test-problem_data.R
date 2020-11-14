@@ -32,7 +32,7 @@ test_that("Monoallelic snps don't cause issues", {
   ga <- rep(K, n)
   gb <- sample(0:K, size = n, replace = TRUE)
 
-  ldhapout <- ldest_gam(ga = ga, gb = gb, K = K)
+  ldhapout <- ldest_hap(ga = ga, gb = gb, K = K)
 
   ldcompout <- ldest_comp(ga = ga, gb = gb, K = K)
 
@@ -55,8 +55,8 @@ test_that("NA's don't cause issues", {
   gbmat[1, 5] <- NA
   gamat[3, 2] <- NA
 
-  ldhapout <- ldest(ga = ga, gb = gb, K = K, type = "gam")
-  ldhapout2 <- ldest(ga = gamat, gb = gbmat, K = K, type = "gam")
+  ldhapout <- ldest(ga = ga, gb = gb, K = K, type = "hap")
+  ldhapout2 <- ldest(ga = gamat, gb = gbmat, K = K, type = "hap")
   ldcompout <- ldest(ga = ga, gb = gb, K = K, type = "comp")
   ldcompout2 <- ldest(ga = gamat, gb = gbmat, K = K, type = "comp", model = "flex", pen = 2)
   ldcompout3 <- ldest(ga = gamat, gb = gbmat, K = K, type = "comp", model = "norm")
@@ -78,6 +78,28 @@ test_that("NA's don't cause issues", {
 })
 
 
+test_that("simplex_to_real doesn't cause memory error", {
+  ref <- c(0.236697222222222, 0.194969444444444, 0.311636111111111, 0.256697222222222)
+  temp <- simplex_to_real(ref)
+  expect_equal(c(real_to_simplex(temp)), ref)
+})
 
+test_that("llike_geno and dllike_geno_dpar works", {
+  load("./problem_llike_geno.RData")
 
+  prob <- real_to_simplex(y = par)
+
+  stopifnot(length(gA) == length(gB))
+  lp <- 0
+  for (i in seq_along(gA)) {
+    lp <- lp + probgeno(gA = gA[[i]], gB = gB[[i]], K = K, prob = prob, log_p = TRUE)
+  }
+
+  expect_equal(lp, proballgeno(gA = gA, gB = gB, K = K, prob = prob, log_p = TRUE))
+
+  lprior(prob = prob, alpha = alpha)
+
+  llike_geno(par = par, gA = gA, gB = gB, K = K, alpha = alpha)
+  dllike_geno_dpar(par = par, gA = gA, gB = gB, K = K, alpha = alpha)
+})
 
