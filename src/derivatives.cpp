@@ -128,8 +128,8 @@ arma::vec dproballgeno_dprob(const arma::vec &gA,
 arma::mat dreal_to_simplex_dy(const arma::vec y) {
   int K = y.n_elem + 1;
 
-  arma::mat jacob(K, K - 1);
 
+  arma::mat jacob(K, K - 1);
   double recsum;
   double drecsum;
   double zk;
@@ -208,7 +208,7 @@ arma::vec dllike_geno_dpar(const arma::vec par,
                            const int K,
                            const arma::vec alpha) {
   if (par.n_elem != 3) {
-    Rcpp::stop("par needs to be length 3");
+    Rcpp::stop("dllike_geno_dpar: par needs to be length 3");
   }
 
   arma::mat dp_dy = dreal_to_simplex_dy(par);
