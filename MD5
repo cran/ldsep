@@ -1,9 +1,9 @@
-d0b324750918dfba62aa6c69666793cf *DESCRIPTION
+307344f6beba70d5a269fc05c0596b1b *DESCRIPTION
 f8ac7b9acd16666cef28bf0e873636b6 *NAMESPACE
-60504c0d736368f74d69eb49ee2caa97 *NEWS.md
-cdb3a58c6868e9cfa1f7783294903992 *R/RcppExports.R
+e7ca334a5b2de14fa0466c0ed5e5aba2 *NEWS.md
+f58058c5285eee6bbe9df8132b59c0bb *R/RcppExports.R
 07a7b021de98bbfbc916ab37a1ac43d8 *R/data.R
-34fdd48f0871f12edf9674fc82d59211 *R/fast.R
+cbded734339a8309159498f9b7d72dde *R/fast.R
 dfd19f4da5cb0d277196224eba6af25f *R/generics.R
 cfe1df2a931c50fd4501ca8700a4f07c *R/ldgeno.R
 f56f28ef98eb58058888230a100504d9 *R/ldsep-package.R
@@ -13,7 +13,7 @@ d92824302741866db108df0429e29efa *R/mom.R
 6b51ea863a347de490979996bd7e9101 *R/multild.R
 8613f3fa4ceaafea35a9c0f9569fdd31 *R/sliding_window.R
 f07210ce90c22251c808b9a4fae5e7a9 *README.md
-8c4a167ebe2e86a9e0fb836acdfeb4df *build/partial.rdb
+af541b64b5ff7007aeadf42895589173 *build/partial.rdb
 40d66312e5491de6bd70f22f3c5a26d7 *build/vignette.rds
 521b60981205f94bd4e8abd0bc48a677 *data/glike.rda
 b6d5c14ebf92f47d41fbb50ab5676e0d *data/gp.rda
@@ -24,7 +24,7 @@ b6d5c14ebf92f47d41fbb50ab5676e0d *data/gp.rda
 9fea5a98870e8bb09504ec87e5aa516b *inst/doc/fast.html
 936b47e79d2c19a9fa810464560f5026 *inst/doc/vcf.R
 2b5d46576145f63b61afc911e5ea30c6 *inst/doc/vcf.Rmd
-a9f4be3cc4c7da3990189bd30ef60a46 *inst/doc/vcf.html
+4239a811fc624ce1c473248525ad75f2 *inst/doc/vcf.html
 8699ada5fe830e41dd8690ec45af9226 *inst/extdata/subuit.vcf
 0f76fc5e6890f7eaf04eef2a8210b968 *man/Dprime.Rd
 c3767fccc3002f371a0f5ceca8a5f872 *man/figures/logo.png
@@ -49,13 +49,13 @@ b4031e55f7960d7a62371565a71862f6 *man/sldest.Rd
 c1b1e7b7e2f7f168a0054be04d024ad6 *man/zshrink.Rd
 e4a9a47c4a3aca98677ab8b16336e5de *src/Makevars
 e4a9a47c4a3aca98677ab8b16336e5de *src/Makevars.win
-1f06d2af3ca3f9781b1c6eaa0f3308be *src/RcppExports.cpp
+a6fa73b1f226cc1a5a0c57471b7608b6 *src/RcppExports.cpp
 0846fb837cdde96fed2dce246a05d5ee *src/derivatives.cpp
 1092040bd4d00698c40e4900e8907b7d *src/em.cpp
 2203c37fe4af44cf5c0e6b3ba246d5f1 *src/genolike.cpp
 b885efa0cbf6c58228908d22bc789cdb *src/multinom.cpp
 24c39165a267496f4e9f35947949ec22 *src/pbnorm.cpp
-62878ef070d10906fe96b2b897f030e2 *src/postmom.cpp
+8724c923c40aba75d1499b98e4a300fa *src/postmom.cpp
 e56739e01fce27efbece7025dbbe9e0a *src/priors.cpp
 1da695c9aec1dabb00ef6b79cd28d718 *src/utils.cpp
 c4c7dc1414c68b25e9c6d70aa43a2dc7 *tests/testthat.R
@@ -73,7 +73,7 @@ acdb4de20bf8e739cab3e74e835e11eb *tests/testthat/test-ld_from_gmat.R
 9d1e7de5d0900230edc75ca6727660b2 *tests/testthat/test-lp.R
 09717f61a775bc4184bea675d49fcdfe *tests/testthat/test-multinomial.R
 a4d41e18c6566cc512624e2f33491f9f *tests/testthat/test-pbnorm.R
-74b5174a8d150c8300279f9e035166a4 *tests/testthat/test-posteriormean.R
+0ea143096fc5cd48c670c7acb7ced0be *tests/testthat/test-posteriormean.R
 0522bca3508e8e33f155e87815ed17dc *tests/testthat/test-problem_data.R
 8f58a252356de7d1dc967fa0feaf08b1 *vignettes/fast.Rmd
 2b5d46576145f63b61afc911e5ea30c6 *vignettes/vcf.Rmd
