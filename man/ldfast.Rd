@@ -77,7 +77,7 @@ estimators of LD.}
 Estimates the reliability ratios from posterior marginal moments and uses
 these to correct the biases in linkage disequilibrium estimation
 caused by genotype uncertainty. These methods are described in
-Gerard (2021).
+Gerard (in press).
 }
 \section{Details}{
 
@@ -89,6 +89,17 @@ haplotypic measures of LD (see the description in \code{\link{ldest}()}).
 They are always appropriate measures of association
 between loci, but only correspond to haplotypic measures of LD when
 Hardy-Weinberg equilibrium is fulfilled in autopolyploids.
+
+In order for these estimates to perform well, you need to use
+posterior genotype probabilities that have been calculated using
+adaptive priors, i.e. empirical/hierarchical Bayes approaches. There
+are many approaches that do this, such as
+\href{https://cran.r-project.org/package=updog}{\code{updog}},
+\href{https://cran.r-project.org/package=polyRAD}{\code{polyRAD}},
+\href{https://cran.r-project.org/package=fitPoly}{\code{fitPoly}}, or
+\href{https://github.com/guilherme-pereira/vcf2sm}{\code{SuperMASSA}}.
+Note that GATK uses a uniform prior, so would be inappropriate for
+use in \code{ldfast()}.
 
 Calculating standard errors and performing hierarchical shrinkage of the
 reliability ratios are both rather slow operations compared to just
@@ -151,15 +162,13 @@ ldout$semat
 }
 \references{
 \itemize{
-\item{Gerard, David. Scalable Bias-corrected Linkage Disequilibrium Estimation Under Genotype Uncertainty. \emph{bioRxiv}, 2021. \doi{10.1101/2021.02.08.430270}}
+\item{Gerard, David. Scalable Bias-corrected Linkage Disequilibrium Estimation Under Genotype Uncertainty. \emph{Heredity}, \emph{in press}. \doi{10.1038/s41437-021-00462-5}.}
 \item{T. Robertson and J. D. Cryer. An iterative procedure for estimating the mode. \emph{Journal of the American Statistical Association}, 69(348):1012–1016, 1974. \doi{10.1080/01621459.1974.10480246}.}
 \item{M. Stephens. False discovery rates: a new deal. \emph{Biostatistics}, 18(2):275–294, 10 2016. ISSN 1465-4644 \doi{10.1093/biostatistics/kxw041}.}
 }
 }
 \seealso{
 \describe{
-\item{\code{\link{gl_to_gp}()}}{Normalize genotype likelihoods to
-posterior probabilities using naive uniform prior.}
 \item{\code{\link[ashr]{ash}()}}{Function used to perform hierarchical
 shrinkage on the log of the reliability ratios.}
 \item{\code{\link{ldest}()}, \code{\link{mldest}()}, \code{\link{sldest}()}}{Maximum likelihood estimation of linkage disequilibrium.}
