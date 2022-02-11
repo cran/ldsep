@@ -22,7 +22,7 @@ knitr::opts_chunk$set(
 
 # Abstract
 
-We demonstrate our new moment-based linkage disequilibrium (LD) estimators, as implemented in the `ldfast()` function. These methods are described in detail in Gerard (in press). The following code chunks are only evaluated if `{updog}` is installed with a version of at least 2.0.2.
+We demonstrate our new moment-based linkage disequilibrium (LD) estimators, as implemented in the `ldfast()` function. These methods are described in detail in Gerard (2021). The following code chunks are only evaluated if `{updog}` is installed with a version of at least 2.0.2.
 
 # Analysis
 
@@ -48,7 +48,7 @@ The first dimension indexes the SNPs, the second dimension indexes the individua
 
 You can use other genotyping programs to obtain these posterior probabilities, but they have to be formatted as an array with the dimensions in the correct order (SNPs by individuals by dosages). 
 
-**However**, in order for these estimates to perform well, you need to use posterior genotype probabilities that have been calculated using adaptive priors, i.e. empirical/hierarchical Bayes approaches. There are many approaches that do this, such as [`{updog}`](https://cran.r-project.org/package=updog), [`{polyRAD}`](https://cran.r-project.org/package=polyRAD), [`{fitPoly}`](https://cran.r-project.org/package=fitPoly), or [`{SuperMASSA}`](https://github.com/guilherme-pereira/vcf2sm). Note that GATK uses a uniform prior, so would be inappropriate for use in \code{ldfast()}.
+**However**, in order for these estimates to perform well, you need to use posterior genotype probabilities that have been calculated using adaptive priors, i.e. empirical/hierarchical Bayes approaches. There are many approaches that do this, such as [`{updog}`](https://cran.r-project.org/package=updog), [`{polyRAD}`](https://cran.r-project.org/package=polyRAD), [`{fitPoly}`](https://cran.r-project.org/package=fitPoly), or [`{SuperMASSA}`](https://github.com/guilherme-pereira/vcf2sm). Note that GATK uses a uniform prior, so would be inappropriate for use in `ldfast()`.
 
 Let's use our genotype posterior probabilities (`gp`) to estimate LD.
 
@@ -93,4 +93,4 @@ Other LD estimators are available: `D`, `Dprime`, `r`, and `z`. See the help fil
 
 # References
 
--  Gerard, David. "Scalable Bias-corrected Linkage Disequilibrium Estimation Under Genotype Uncertainty." _Heredity_. (in press) [doi:10.1038/s41437-021-00462-5](https://doi.org/10.1038/s41437-021-00462-5)
+- Gerard, David (2021). "Scalable Bias-corrected Linkage Disequilibrium Estimation Under Genotype Uncertainty." _Heredity_, *127*(4), 357--362. [doi:10.1038/s41437-021-00462-5](https://doi.org/10.1038/s41437-021-00462-5).
