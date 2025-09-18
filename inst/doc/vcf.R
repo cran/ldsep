@@ -1,4 +1,4 @@
-## ---- include = FALSE---------------------------------------------------------
+## ----include = FALSE----------------------------------------------------------
 runthis <- requireNamespace("VariantAnnotation", quietly = TRUE) &&
   requireNamespace("updog", quietly = TRUE)
 
@@ -20,9 +20,9 @@ library(VariantAnnotation)
 library(updog)
 library(ldsep)
 
-## ---- eval = FALSE------------------------------------------------------------
-#  install.packages(c("ldsep", "updog", "BiocManager"))
-#  BiocManager::install("VariantAnnotation")
+## ----eval = FALSE-------------------------------------------------------------
+# install.packages(c("ldsep", "updog", "BiocManager"))
+# BiocManager::install("VariantAnnotation")
 
 ## -----------------------------------------------------------------------------
 packageVersion("updog")
@@ -50,7 +50,7 @@ mout <- multidog(refmat = refmat,
                  ploidy = ploidy, 
                  model = "norm")
 
-## ---- warning=FALSE, fig.show="hold", out.width="25%", results='hide'---------
+## ----warning=FALSE, fig.show="hold", out.width="25%", results='hide', fig.alt="Genotype plot of a SNP"----
 plot(mout, indices = c(1, 14, 19))
 
 ## -----------------------------------------------------------------------------
@@ -69,62 +69,62 @@ pmmat <- format_multidog(x = msub, varname = "postmean")
 class(pmmat)
 dim(pmmat)
 
-## ---- eval=FALSE--------------------------------------------------------------
-#  # install.packages(c("fitPoly", "reshape2"))
-#  library(fitPoly)
-#  library(reshape2)
+## ----eval=FALSE---------------------------------------------------------------
+# # install.packages(c("fitPoly", "reshape2"))
+# library(fitPoly)
+# library(reshape2)
 
-## ---- eval = FALSE------------------------------------------------------------
-#  ratiodf <- melt(data = refmat / sizemat,
-#                  varnames = c("MarkerName", "SampleName"),
-#                  value.name = "ratio")
-#  saveMarkerModels(ploidy = ploidy,
-#                   data = ratiodf,
-#                   filePrefix = "uit",
-#                   rdaFiles = TRUE)
-
-## ---- eval=FALSE--------------------------------------------------------------
-#  load("./uit_scores.RData")
-#  load("./uit_models.RData")
+## ----eval = FALSE-------------------------------------------------------------
+# ratiodf <- melt(data = refmat / sizemat,
+#                 varnames = c("MarkerName", "SampleName"),
+#                 value.name = "ratio")
+# saveMarkerModels(ploidy = ploidy,
+#                  data = ratiodf,
+#                  filePrefix = "uit",
+#                  rdaFiles = TRUE)
 
 ## ----eval=FALSE---------------------------------------------------------------
-#  modeldata <- subset(x = modeldata, subset = pmax(P0, P1, P2, P3, P4) < 0.95)
-#  scores <- scores[scores$MarkerName %in% modeldata$MarkerName, ]
+# load("./uit_scores.RData")
+# load("./uit_models.RData")
 
-## ---- eval=FALSE--------------------------------------------------------------
-#  mergedf <- merge(x = scores[c("MarkerName", "SampleName", paste0("P", 0:ploidy))],
-#                   y = modeldata[c("MarkerName", paste0("P", 0:ploidy))],
-#                   by = "MarkerName",
-#                   all.x = TRUE)
-#  for (i in 0:ploidy) {
-#    current_post <- paste0("P", i, ".x")
-#    current_prior <- paste0("P", i, ".y")
-#    current_ll <- paste0("logL_", i)
-#    mergedf[[current_ll]] <- log(mergedf[[current_post]]) - log(mergedf[[current_prior]])
-#  }
-#  
-#  fp_llarray <- acast(
-#    melt(data = mergedf[c("MarkerName", "SampleName", paste0("logL_", 0:ploidy))],
-#         id.vars = c("MarkerName", "SampleName"),
-#         variable.name = "dosage",
-#         value.name = "logl"),
-#    formula = "MarkerName ~ SampleName ~ dosage",
-#    value.var = "logl",
-#  )
+## ----eval=FALSE---------------------------------------------------------------
+# modeldata <- subset(x = modeldata, subset = pmax(P0, P1, P2, P3, P4) < 0.95)
+# scores <- scores[scores$MarkerName %in% modeldata$MarkerName, ]
+
+## ----eval=FALSE---------------------------------------------------------------
+# mergedf <- merge(x = scores[c("MarkerName", "SampleName", paste0("P", 0:ploidy))],
+#                  y = modeldata[c("MarkerName", paste0("P", 0:ploidy))],
+#                  by = "MarkerName",
+#                  all.x = TRUE)
+# for (i in 0:ploidy) {
+#   current_post <- paste0("P", i, ".x")
+#   current_prior <- paste0("P", i, ".y")
+#   current_ll <- paste0("logL_", i)
+#   mergedf[[current_ll]] <- log(mergedf[[current_post]]) - log(mergedf[[current_prior]])
+# }
+# 
+# fp_llarray <- acast(
+#   melt(data = mergedf[c("MarkerName", "SampleName", paste0("logL_", 0:ploidy))],
+#        id.vars = c("MarkerName", "SampleName"),
+#        variable.name = "dosage",
+#        value.name = "logl"),
+#   formula = "MarkerName ~ SampleName ~ dosage",
+#   value.var = "logl",
+# )
 
 ## -----------------------------------------------------------------------------
 like_ld <- mldest(geno = larray, K = ploidy, type = "comp")
 
-## ---- out.width="50%"---------------------------------------------------------
+## ----out.width="50%", fig.alt="Heat map of r-squared"-------------------------
 plot(like_ld)
 
 ## -----------------------------------------------------------------------------
 mom_ld <- mldest(geno = pmmat, K = ploidy, type = "comp")
 
-## ---- out.width="50%"---------------------------------------------------------
+## ----out.width="50%", fig.alt="Heat map of r-squared"-------------------------
 plot(mom_ld)
 
-## -----------------------------------------------------------------------------
+## ----fig.alt="Scatterplot of naive r-squared versus MLE r-squared"------------
 par(mar = c(2.4, 2.8, 0, 0) + 0.5, mgp = c(1.8, 0.6, 0))
 plot(mom_ld$r2, like_ld$r2, 
      xlab = expression(paste(textstyle(Naive), ~~hat(r)^2)), 

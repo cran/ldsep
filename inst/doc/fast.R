@@ -1,4 +1,4 @@
-## ---- include = FALSE---------------------------------------------------------
+## ----include = FALSE----------------------------------------------------------
 eval <- requireNamespace("updog", quietly = TRUE)
 if (eval) {
   eval <- packageVersion("updog") >= "2.0.2"
@@ -25,14 +25,14 @@ dim(gp)
 ## -----------------------------------------------------------------------------
 ldout <- ldfast(gp = gp, type = "r2")
 
-## -----------------------------------------------------------------------------
+## ----fig.alt="Heat map of r-squared"------------------------------------------
 corrplot(corr = ldout$ldmat, 
          method = "color", 
          type = "upper",
          diag = FALSE,
          tl.pos = "n")
 
-## -----------------------------------------------------------------------------
+## ----fig.alt="Heat map of standard errors of r-squared"-----------------------
 corrplot(corr = ldout$semat, 
          method = "color", 
          type = "upper",
@@ -40,7 +40,7 @@ corrplot(corr = ldout$semat,
          tl.pos = "n", 
          is.corr = FALSE)
 
-## -----------------------------------------------------------------------------
+## ----fig.alt="Histogram of reliability ratios"--------------------------------
 graphics::hist(x = ldout$rr, 
                main = "Reliability Ratios", 
                xlab = "Reliability Ratios")
